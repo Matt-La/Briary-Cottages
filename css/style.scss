@@ -1,0 +1,796 @@
+$colors: (
+  primary: #888,
+  secondary: #666,
+  text-color: #eee,
+  headings: #333,
+  sub-copy: #888
+);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body,
+#slider,
+.wrap,
+.slide-content {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  font-size: 17px;
+  max-width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.wrap {
+  position: relative;
+}
+
+.slide1 {
+  background: url("../img/img1.jpg");
+}
+.slide2 {
+  background-image: url("../img/img2.jpg");
+}
+.slide3 {
+  background-image: url("../img/img3.jpg");
+}
+
+.slide1,
+.slide2,
+.slide3 {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.slide-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.slide-content span {
+  font-size: 5rem;
+  color: #fff;
+}
+
+.arrow {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  margin-top: -35px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+#arrow-left {
+  border-width: 30px 40px 30px 0;
+  border-color: transparent #fff transparent transparent;
+  left: 0;
+  margin-left: 30px;
+}
+#arrow-right {
+  border-width: 30px 0 30px 40px;
+  border-color: transparent transparent transparent #fff;
+  right: 0;
+  margin-right: 30px;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+.container {
+  margin: auto;
+}
+/* ============================== HEADINGS ============================== */
+h1 {
+  font-size: 2.32em;
+  font-weight: 300;
+  margin: 30px 30px;
+}
+h2 {
+  font-size: 1.8em;
+  font-weight: 400;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  text-transform: uppercase;
+}
+h4 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+h1,
+h2 {
+  color: map-get($colors, headings);
+  letter-spacing: 3px;
+  line-height: 1em;
+}
+p {
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  font-weight: 300;
+  color: map-get($colors, sub-copy);
+  line-height: 1.4em;
+  padding: 0 20px 30px 20px;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/* ============================== SECONDARY NAVIGATION ============================== */
+.secondary-menu {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  background-color: map-get($colors, secondary);
+  padding: 0.8em 1em;
+  list-style: none;
+  color: map-get($colors, text-color);
+  font-weight: 300;
+  letter-spacing: 1px;
+  cursor: pointer;
+  ul {
+    display: flex;
+  }
+  li:hover {
+    color: #333;
+    transition: 0.5s;
+  }
+  li:not(.email):not(:last-child) {
+    margin-right: 25px;
+  }
+}
+.email {
+  margin-right: auto;
+}
+.number,
+.email {
+  font-size: 0.9em;
+}
+.number i,
+.email i {
+  margin-right: 2px;
+}
+
+.number span {
+  margin-right: 15px;
+}
+/* ============================== MAIN MENU============================== */
+.main-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: map-get($colors, primary);
+  padding: 2em 1em;
+  -moz-box-shadow: 3px 0 5px 6px #ccc;
+  -webkit-box-shadow: 3px 0 5px 6px #ccc;
+  box-shadow: 0 2px 6px #666;
+}
+.logo {
+  margin-right: auto;
+  list-style: none;
+}
+.mobile-menu {
+  position: relative;
+  display: none;
+}
+nav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  a {
+    position: relative;
+    text-decoration: none;
+    font-size: 16px;
+    color: map-get($colors, text-color);
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+nav ul li:not(:last-child) {
+  margin-right: 25px;
+}
+nav ul li a:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #eee;
+  z-index: 1;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: 0.5s;
+}
+nav ul li a:hover:before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+nav ul li a:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background: #eee;
+  z-index: 1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: 0.5s;
+}
+nav ul li a:hover:after {
+  transform: scaleX(1);
+  transform-origin: right;
+}
+.sub-menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 84px;
+  background: map-get($colors, secondary);
+  padding: 20px 40px;
+  border-top: 2px solid #eee;
+  visibility: hidden;
+  transition: 0.2s ease-in;
+}
+.hover:hover .sub-menu {
+  visibility: visible;
+  transition: 1s ease-in;
+  z-index: 999;
+}
+.sub-item {
+  width: 100%;
+}
+.sub-menu .sub-item:not(:last-child) {
+  margin-right: 0;
+  margin-bottom: 15px;
+}
+#cottages p {
+  text-align: left;
+}
+/* ============================= SLIDER ================================== */
+// .slider-outer {
+//   display: flex;
+// }
+// .slider-inner {
+//   width: 100vw;
+//   height: auto;
+//   position: relative;
+//   overflow: hidden;
+//   justify-content: left;
+//   padding: 3px;
+//   border: #666 solid 1px;
+// }
+// .slider-inner img {
+//   display: none;
+//   width: 100vw;
+//   height: 60vh;
+// }
+// .slider-inner img.active {
+//   display: inline-flex;
+// }
+// .prev,
+// .next {
+//   margin-left: auto;
+//   margin-top: 30%;
+//   cursor: pointer;
+// }
+// .prev {
+//   position: relative;
+//   margin-right: -45px;
+//   height: 50px;
+//   z-index: 100;
+// }
+// .next {
+//   position: relative;
+//   margin-left: -45px;
+//   height: 50px;
+//   z-index: 100;
+// }
+/* ============================== SHOWCASE ============================== */
+#showcase {
+  background: url("../img/oakcottage/5U3A4660.jpg") no-repeat center center;
+  background-size: cover;
+  height: 60vh;
+}
+/* ============================== COTTAGES ============================== */
+#cottages p {
+  font-size: 1.1em;
+  line-height: 1.7;
+  font-weight: 300;
+}
+.cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0.1em;
+  padding-right: 0.1em;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.text-content {
+  width: 100%;
+  margin-top: -5px;
+  color: map-get($colors, primary);
+  border: 1px solid #d4d4d4;
+}
+.text-content h3 {
+  border: 1px solid#d4d4d4;
+  padding: 10px 10px;
+  font-weight: 400;
+}
+.text-content ul {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  border-top: 1px solid #d4d4d4;
+  list-style: none;
+}
+.text-content li {
+  font-size: 13px;
+}
+.text-content i {
+  margin-right: 5px;
+}
+.cottage-heading {
+  position: absolute;
+  margin-top: 0;
+  padding: 10px 40px;
+  font-size: 30px;
+  font-weight: 500;
+  color: #333;
+}
+/* ============================== QUESTIONS BANNER ============================== */
+#wrapper-banner {
+  background-color: map-get($colors, primary);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.banner-heading {
+  color: #eee !important;
+  font-weight: 300;
+  .fa-map-marker-alt {
+    margin-left: 10px;
+  }
+}
+/* ============================== CONTACT FORM ============================== */
+form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  input,
+  textarea {
+    border: 1px solid #333;
+    padding: 15px 10px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    textarea {
+      color: #888;
+    }
+  }
+  .button {
+    width: 30%;
+    background-color: map-get($colors, primary);
+    color: #eee;
+    font-size: 1em;
+    font-weight: 300;
+    text-align: center;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+/* ============================== CONTACT ============================== */
+#contact {
+  margin-top: 30px;
+}
+.contact-content {
+  width: 100%;
+  height: auto;
+  padding: 80px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  border-top: 1px solid #d4d4d4;
+  border-bottom: 1px solid #d4d4d4;
+}
+.contact-details {
+  list-style-type: none;
+  flex-direction: row;
+}
+.contact-details li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: map-get($colors, primary);
+  font-weight: 300;
+}
+.contact-details i {
+  position: relative;
+  font-size: 50px;
+  margin-right: 10px;
+  color: map-get($colors, primary);
+}
+/* ============================== FOOTER ============================== */
+footer {
+  background-color: map-get($colors, primary);
+  padding: 20px;
+  margin-top: 30px;
+  color: #eee !important;
+  font-size: 0.8em;
+  font-weight: 300;
+}
+#main-footer p {
+  padding: 0;
+  color: #eee;
+}
+/* ============================== OAK COTTAGE ============================== */
+#oakcottage-showcase {
+  background: url("../img/oakcottage/5U3A4686.jpg") no-repeat center center;
+  background-size: cover;
+  height: 60vh;
+}
+.cottage-dis {
+  display: flex;
+  flex-direction: row;
+  .img-1,
+  .img-2,
+  .img-3,
+  .img-4 {
+    position: relative;
+    width: 25%;
+    padding: 0 2px;
+  }
+}
+.book-btn {
+  background: map-get($colors, primary);
+  width: 20.5%;
+  padding: 25px;
+  text-align: center;
+  a {
+    color: #eee;
+    text-decoration: none;
+  }
+}
+/* ============================== PROPERTY STYLES ============================== */
+.property-container {
+  display: flex;
+  margin-top: 30px;
+  .headline {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    color: map-get($colors, sub-copy);
+  }
+  .headline li:not(:first-child) {
+    margin-left: 15px;
+  }
+  i {
+    font-size: 22px;
+    color: map-get($colors, primary);
+  }
+  span {
+    margin-left: 10px;
+  }
+}
+.well {
+  border-radius: 3px;
+  box-shadow: none;
+  background-color: #fff;
+  border: 1px solid #898989;
+  overflow: hidden;
+  padding: 15px;
+  margin-top: 15px;
+  color: map-get($colors, sub-copy);
+}
+
+.key-features li:last-child {
+  margin-bottom: 0;
+}
+.alt {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase !important;
+  letter-spacing: 2px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.accordian {
+  width: 48%;
+  display: inline-block;
+}
+
+.key-features {
+  padding-left: 15px;
+  display: inline-block;
+  vertical-align: top;
+  li {
+    font-size: 0.9em;
+    margin: 10px 0;
+  }
+}
+.oak-description {
+  margin-top: 30px;
+}
+h1.main-heading {
+  margin: 30px 0 0 0;
+  span {
+    margin-left: 15px;
+    color: map-get($colors, primary);
+  }
+}
+.main-heading {
+  border-left: 2px solid map-get($colors, primary);
+}
+/* ============================== COTTAGE PRICE AND AVAILABILITY PAGE STYLES ============================== */
+.avail-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 50px 0;
+}
+.avail-content h4 {
+  font-size: 1.4em;
+  color: map-get($colors, primary);
+  margin-bottom: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.avail-content p {
+  padding: 0;
+  margin-top: 10px;
+}
+
+iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ============================== WILLOW COTTAGE STYLES ============================== */
+#willowcottage-showcase {
+  background: url(../img/willow/willow-bg.jpg) no-repeat center;
+  background-size: cover;
+  height: 60vh;
+}
+.facilities {
+  margin-bottom: 30px;
+  margin-left: 25px;
+  padding: 10px;
+  color: #888;
+  font-weight: 300;
+}
+.willow-description,
+.milestone-description,
+.maple-description,
+.sycamore-description,
+.pepper-description {
+  margin-top: 30px;
+}
+#accomodation .well {
+  border: none;
+  overflow: none;
+}
+#accomodation .key-features {
+  padding-left: 20px;
+}
+.break {
+  margin-top: 30px;
+}
+.accom-heading {
+  display: inline-block;
+}
+.photo-col {
+  padding-right: 0.2rem;
+  padding-left: 0.2rem;
+}
+/* ============================== ATTRACTIONS STYLES ============================= */
+#attractions-container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.attractions-header {
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.silverstone,
+.miltonkeynes,
+.stowe {
+  display: flex;
+}
+.silverstone-content,
+.miltonkeynes-content,
+.stowe-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20px 0 20px 0;
+  border-bottom: 1px solid #d4d4d4;
+}
+.silverstone-copy,
+.miltonkeynes-copy,
+.stowe-copy {
+  padding: 10px;
+}
+#attractions-container span {
+  color: #333;
+  font-weight: 400;
+}
+/* ============================== CONTACT STYLES ============================= */
+#contact-showcase {
+  background: url(../img/willow/willow-bg.jpg) no-repeat center;
+  background-size: cover;
+  height: 40vh;
+}
+
+.main-contact {
+  margin: 30px 0;
+}
+/* ============================== RESPONSIVE STYLES ============================== */
+@media (max-width: 992px) {
+  .text-content li {
+    font-size: 15px !important;
+  }
+  .contact-content {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+  }
+  .contact-content li {
+    justify-content: flex-start;
+    margin-bottom: 25px;
+  }
+}
+/* =============================== SECOND BREAK POINT 768PX ======================= */
+@media (max-width: 768px) {
+  .secondary-menu li {
+    margin-bottom: 0;
+  }
+  .mobile-menu {
+    display: flex;
+    position: absolute;
+    top: 7%;
+    right: 2%;
+    list-style: none;
+  }
+  .mobile-menu i {
+    color: #eee;
+    font-size: 22px;
+    cursor: pointer;
+  }
+  .main-menu {
+    flex-direction: column;
+    padding: 1em;
+  }
+  .main-menu .logo {
+    margin: auto;
+  }
+  .main-navigation {
+    height: auto;
+  }
+  nav {
+    width: 100%;
+    display: none;
+  }
+  .active {
+    display: block;
+  }
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    height: 0;
+    margin-top: 10px;
+    overflow: hidden;
+    align-content: center;
+    align-items: center;
+  }
+  nav ul li {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 0.5em 0;
+    margin-right: 0;
+    border-bottom: 1px solid #eee;
+  }
+  nav ul li:hover {
+    background-color: map-get($colors, secondary);
+  }
+  nav ul li:not(:last-child) {
+    margin-right: 0;
+  }
+  nav ul li:first-child {
+    border-top: 1px solid #eee;
+  }
+  .hover:hover .sub-menu {
+    position: relative;
+    height: auto;
+  }
+  .sub-menu {
+    position: absolute;
+    top: -10px;
+    border-top: none;
+  }
+  .sub-menu .sub-item:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  h1.main-heading {
+    margin-left: 10px;
+  }
+  /* ============================== RESPONSIVE COTTAGES ============================== */
+  .cottages-dis {
+    padding: 5px 25px;
+  }
+
+  #contact {
+    margin-top: 30px;
+  }
+  form {
+    padding: 0 10px;
+  }
+  .property-container {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .text-content {
+    margin-bottom: 0;
+  }
+  #wrapper-banner {
+    margin-top: 0;
+  }
+}
+/* =========================== MEDIA QUERY 580PX =================================*/
+@media (max-width: 580px) {
+  .secondary-menu {
+    justify-content: space-evenly;
+    font-size: 18px;
+    span {
+      display: none !important;
+    }
+  }
+
+  .number i,
+  .email i {
+    margin-right: 0;
+  }
+  .email {
+    margin-right: 0;
+  }
+  h1.main-heading span {
+    font-size: 0.8em;
+  }
+  h1.main-heading {
+    margin-left: 10px;
+  }
+  .property-container .headline {
+    font-size: 0.8em;
+  }
+}
+/* ============================ RESPONSIVE ATTRACTIONS =========================== */
