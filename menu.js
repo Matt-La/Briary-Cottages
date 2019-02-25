@@ -29,9 +29,14 @@ $(".mobile-menu").click(function(e) {
     .slideToggle("slow");
 });
 
-$("#accomodation").on("click", ".accordian-icon", function() {
+$(".hover").click(function() {
   $(this)
-    .toggleClass("active")
-    .next()
+    .find(".sub-menu")
+    .slideToggle();
+});
+
+$(".key-features").click(function() {
+  $(this)
+    .find("li")
     .slideToggle();
 });

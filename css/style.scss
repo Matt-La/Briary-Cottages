@@ -29,7 +29,6 @@ body,
   padding: 0;
   font-size: 17px;
   max-width: 100%;
-  height: 100vh;
   overflow-x: hidden;
 }
 
@@ -50,6 +49,7 @@ body,
 .slide1,
 .slide2,
 .slide3 {
+  height: 80vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -161,7 +161,9 @@ a {
 }
 .number,
 .email {
-  font-size: 0.9em;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
 }
 .number i,
 .email i {
@@ -199,7 +201,7 @@ nav ul {
   a {
     position: relative;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 14px;
     color: map-get($colors, text-color);
     cursor: pointer;
     text-align: center;
@@ -252,7 +254,7 @@ nav ul li a:hover:after {
   padding: 20px 40px;
   border-top: 2px solid #eee;
   visibility: hidden;
-  transition: 0.2s ease-in;
+  transition: 0.4s ease-in;
 }
 .hover:hover .sub-menu {
   visibility: visible;
@@ -270,50 +272,7 @@ nav ul li a:hover:after {
   text-align: left;
 }
 /* ============================= SLIDER ================================== */
-// .slider-outer {
-//   display: flex;
-// }
-// .slider-inner {
-//   width: 100vw;
-//   height: auto;
-//   position: relative;
-//   overflow: hidden;
-//   justify-content: left;
-//   padding: 3px;
-//   border: #666 solid 1px;
-// }
-// .slider-inner img {
-//   display: none;
-//   width: 100vw;
-//   height: 60vh;
-// }
-// .slider-inner img.active {
-//   display: inline-flex;
-// }
-// .prev,
-// .next {
-//   margin-left: auto;
-//   margin-top: 30%;
-//   cursor: pointer;
-// }
-// .prev {
-//   position: relative;
-//   margin-right: -45px;
-//   height: 50px;
-//   z-index: 100;
-// }
-// .next {
-//   position: relative;
-//   margin-left: -45px;
-//   height: 50px;
-//   z-index: 100;
-// }
-/* ============================== SHOWCASE ============================== */
-#showcase {
-  background: url("../img/oakcottage/5U3A4660.jpg") no-repeat center center;
-  background-size: cover;
-  height: 60vh;
-}
+
 /* ============================== COTTAGES ============================== */
 #cottages p {
   font-size: 1.1em;
@@ -451,33 +410,72 @@ footer {
   color: #eee;
 }
 /* ============================== OAK COTTAGE ============================== */
+
 #oakcottage-showcase {
-  background: url("../img/oakcottage/5U3A4686.jpg") no-repeat center center;
+  background: url(../img/oakcottage/5U3A4686.jpg) no-repeat center;
   background-size: cover;
   height: 60vh;
 }
-.cottage-dis {
-  display: flex;
-  flex-direction: row;
-  .img-1,
-  .img-2,
-  .img-3,
-  .img-4 {
-    position: relative;
-    width: 25%;
-    padding: 0 2px;
-  }
+
+#maplecottage-showcase {
+  background: url(../img/maple_bg.jpg) no-repeat center;
+  background-size: cover;
+  height: 60vh;
 }
-.book-btn {
-  background: map-get($colors, primary);
-  width: 20.5%;
-  padding: 25px;
-  text-align: center;
-  a {
-    color: #eee;
-    text-decoration: none;
-  }
+
+#milestonecottage-showcase {
+  background: url(../img/milestone_bg.jpg) no-repeat center;
+  background-size: cover;
+  height: 60vh;
 }
+
+#willowcottage-showcase {
+  background: url(../img/willow/willow-bg.jpg) no-repeat center;
+  background-size: cover;
+  height: 60vh;
+}
+
+#sycamorecottage-showcase {
+  background: url(../img/sycamore_bg.jpg) no-repeat center;
+  background-size: cover;
+  height: 60vh;
+}
+#peppercottage-showcase {
+  background: url(../img/pepper/pepper_bg.jpg) no-repeat center center;
+  background-size: cover;
+  height: 60vh;
+}
+
+.facilities {
+  margin-bottom: 30px;
+  margin-left: 25px;
+  padding: 10px;
+  color: #888;
+  font-weight: 300;
+}
+.willow-description,
+.milestone-description,
+.maple-description,
+.sycamore-description,
+.pepper-description {
+  margin-top: 30px;
+}
+#accomodation .well {
+  border: none;
+  overflow: none;
+}
+#accomodation .key-features {
+  padding-left: 20px;
+}
+
+.accom-heading {
+  display: inline-block;
+}
+.photo-col {
+  padding-right: 0.2rem;
+  padding-left: 0.2rem;
+}
+
 /* ============================== PROPERTY STYLES ============================== */
 .property-container {
   display: flex;
@@ -499,6 +497,17 @@ footer {
     margin-left: 10px;
   }
 }
+
+.key-features-top {
+  padding-left: 15px;
+  display: inline-block;
+  vertical-align: top;
+  li {
+    font-size: 0.9em;
+    margin: 10px 0;
+  }
+}
+
 .well {
   border-radius: 3px;
   box-shadow: none;
@@ -510,9 +519,19 @@ footer {
   color: map-get($colors, sub-copy);
 }
 
-.key-features li:last-child {
-  margin-bottom: 0;
+.key-features {
+  border-bottom: 1px solid #d4d4d4;
 }
+
+.key-features li {
+  display: none;
+  margin: 15px 0;
+}
+
+.key-features li:last-child {
+  margin-bottom: 15px;
+}
+
 .alt {
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase !important;
@@ -522,18 +541,13 @@ footer {
 }
 
 .accordian {
-  width: 48%;
   display: inline-block;
 }
 
-.key-features {
-  padding-left: 15px;
-  display: inline-block;
-  vertical-align: top;
-  li {
-    font-size: 0.9em;
-    margin: 10px 0;
-  }
+.alt.accordian {
+  margin-left: auto;
+  width: 96%;
+  cursor: pointer;
 }
 .oak-description {
   margin-top: 30px;
@@ -570,47 +584,9 @@ h1.main-heading {
 iframe {
   border: none;
   width: 100%;
-  height: 100%;
   overflow: hidden;
 }
 
-/* ============================== WILLOW COTTAGE STYLES ============================== */
-#willowcottage-showcase {
-  background: url(../img/willow/willow-bg.jpg) no-repeat center;
-  background-size: cover;
-  height: 60vh;
-}
-.facilities {
-  margin-bottom: 30px;
-  margin-left: 25px;
-  padding: 10px;
-  color: #888;
-  font-weight: 300;
-}
-.willow-description,
-.milestone-description,
-.maple-description,
-.sycamore-description,
-.pepper-description {
-  margin-top: 30px;
-}
-#accomodation .well {
-  border: none;
-  overflow: none;
-}
-#accomodation .key-features {
-  padding-left: 20px;
-}
-.break {
-  margin-top: 30px;
-}
-.accom-heading {
-  display: inline-block;
-}
-.photo-col {
-  padding-right: 0.2rem;
-  padding-left: 0.2rem;
-}
 /* ============================== ATTRACTIONS STYLES ============================= */
 #attractions-container {
   margin-top: 30px;
@@ -674,7 +650,7 @@ iframe {
     margin-bottom: 0;
   }
   .mobile-menu {
-    display: flex;
+    display: block;
     position: absolute;
     top: 7%;
     right: 2%;
@@ -699,9 +675,9 @@ iframe {
     width: 100%;
     display: none;
   }
-  .active {
-    display: block;
-  }
+  // .active {
+  //   display: block;
+  // }
   nav ul {
     flex-direction: column;
     align-items: flex-start;
@@ -745,6 +721,20 @@ iframe {
     margin-left: 10px;
   }
   /* ============================== RESPONSIVE COTTAGES ============================== */
+  .slide1,
+  .slide2,
+  .slide3 {
+    height: 60vh;
+  }
+
+  #peppercottage-showcase,
+  #sycamorecottage-showcase,
+  #willowcottage-showcase,
+  #maplecottage-showcase,
+  #milestonecottage-showcase {
+    height: 40vh;
+  }
+
   .cottages-dis {
     padding: 5px 25px;
   }
@@ -782,6 +772,20 @@ iframe {
   }
   .email {
     margin-right: 0;
+  }
+
+  .slide1,
+  .slide2,
+  .slide3 {
+    height: 35vh;
+  }
+
+  #peppercottage-showcase,
+  #sycamorecottage-showcase,
+  #willowcottage-showcase,
+  #maplecottage-showcase,
+  #milestonecottage-showcase {
+    height: 30vh;
   }
   h1.main-heading span {
     font-size: 0.8em;
