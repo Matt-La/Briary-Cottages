@@ -37,13 +37,13 @@ body,
 }
 
 .slide1 {
-  background: url("../img/img1.jpg");
+  background: url("../img/carousel/img1.jpg");
 }
 .slide2 {
-  background-image: url("../img/img2.jpg");
+  background-image: url("../img/carousel/img2.jpg");
 }
 .slide3 {
-  background-image: url("../img/img3.jpg");
+  background-image: url("../img/carousel/img3.jpg");
 }
 
 .slide1,
@@ -111,16 +111,18 @@ h2 {
   padding-left: 10px;
   text-transform: uppercase;
 }
-h4 {
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
+
 h1,
 h2 {
   color: map-get($colors, headings);
   letter-spacing: 3px;
   line-height: 1em;
 }
+h4 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
 p {
   font-family: "Roboto", sans-serif;
   font-size: 1em;
@@ -132,6 +134,10 @@ p {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.accordian-icon {
+  cursor: pointer;
 }
 /* ============================== SECONDARY NAVIGATION ============================== */
 .secondary-menu {
@@ -179,7 +185,7 @@ a {
   display: flex;
   align-items: center;
   background-color: map-get($colors, primary);
-  padding: 2em 1em;
+  padding: 0.8em 1em;
   -moz-box-shadow: 3px 0 5px 6px #ccc;
   -webkit-box-shadow: 3px 0 5px 6px #ccc;
   box-shadow: 0 2px 6px #666;
@@ -271,7 +277,6 @@ nav ul li a:hover:after {
 #cottages p {
   text-align: left;
 }
-/* ============================= SLIDER ================================== */
 
 /* ============================== COTTAGES ============================== */
 #cottages p {
@@ -320,6 +325,27 @@ nav ul li a:hover:after {
   font-size: 30px;
   font-weight: 500;
   color: #333;
+}
+/* ============================== PAYMENT ============================== */
+.payment h1 {
+  color: map-get($colors, primary);
+}
+.payment .container ul {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  list-style: none;
+}
+
+.payment ul li {
+  margin: auto;
+  color: map-get($colors, primary);
+  font-size: 1.8em;
+}
+
+.payment ul li span {
+  font-size: 0.6em;
 }
 /* ============================== QUESTIONS BANNER ============================== */
 #wrapper-banner {
@@ -409,7 +435,21 @@ footer {
   padding: 0;
   color: #eee;
 }
-/* ============================== OAK COTTAGE ============================== */
+
+.terms {
+  margin-top: 10px;
+}
+
+#terms-main {
+  margin-top: 60px;
+}
+
+#terms-conditions h4 {
+  font-size: 1.4em;
+  padding-left: 20px;
+  text-transform: uppercase;
+}
+/* ============================== COTTAGEs  ============================== */
 
 #oakcottage-showcase {
   background: url(../img/oakcottage/5U3A4686.jpg) no-repeat center;
@@ -418,13 +458,13 @@ footer {
 }
 
 #maplecottage-showcase {
-  background: url(../img/maple_bg.jpg) no-repeat center;
+  background: url(../img/backgrounds/maple_bg.jpg) no-repeat center;
   background-size: cover;
   height: 60vh;
 }
 
 #milestonecottage-showcase {
-  background: url(../img/milestone_bg.jpg) no-repeat center;
+  background: url(../img/backgrounds/milestone_bg.jpg) no-repeat center;
   background-size: cover;
   height: 60vh;
 }
@@ -436,7 +476,7 @@ footer {
 }
 
 #sycamorecottage-showcase {
-  background: url(../img/sycamore_bg.jpg) no-repeat center;
+  background: url(../img/backgrounds/sycamore_bg.jpg) no-repeat center;
   background-size: cover;
   height: 60vh;
 }
@@ -584,6 +624,7 @@ h1.main-heading {
 iframe {
   border: none;
   width: 100%;
+  height: 600px;
   overflow: hidden;
 }
 
@@ -619,7 +660,7 @@ iframe {
   color: #333;
   font-weight: 400;
 }
-/* ============================== CONTACT STYLES ============================= */
+/* ============================== CONTACT PAGE STYLES ============================= */
 #contact-showcase {
   background: url(../img/willow/willow-bg.jpg) no-repeat center;
   background-size: cover;
@@ -652,8 +693,8 @@ iframe {
   .mobile-menu {
     display: block;
     position: absolute;
-    top: 7%;
     right: 2%;
+    margin-top: 4px;
     list-style: none;
   }
   .mobile-menu i {
@@ -675,9 +716,7 @@ iframe {
     width: 100%;
     display: none;
   }
-  // .active {
-  //   display: block;
-  // }
+
   nav ul {
     flex-direction: column;
     align-items: flex-start;
@@ -795,6 +834,13 @@ iframe {
   }
   .property-container .headline {
     font-size: 0.8em;
+  }
+  .payment .container ul {
+    flex-direction: column;
+  }
+
+  .payment .container ul li {
+    margin: 8px 0 8px 0;
   }
 }
 /* ============================ RESPONSIVE ATTRACTIONS =========================== */
